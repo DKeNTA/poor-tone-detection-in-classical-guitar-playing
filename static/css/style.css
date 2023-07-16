@@ -1,0 +1,47 @@
+body {
+    background-color: #f8f9fa;
+}
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, .1);
+    background-color:  #f2fef2;
+}
+.card-header {
+    background-color: #b1f1be;
+    border-bottom: none;
+}
+
+.waveform-area, .spectrogram-area {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+.error-message {
+    color: #dc3545;
+}
+
+@keyframes blinking {
+    0%, 40% { opacity: 1; }
+    70% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#runStatus, #recordStatus {
+    animation: blinking 1.2s infinite;
+}
+
+/* @keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    }
+}
+
+.recordButtonAnimating {
+    animation: pulse 2s infinite;
+} */
