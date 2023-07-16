@@ -3,7 +3,7 @@ import librosa.display
 import numpy as np
 import matplotlib.pyplot as plt
 
-from score_output import Scorer
+from detector.score_output import Scorer
 from src.utils.data_transforms import WaveToFeature
 from src.utils.signal_preprocessing import SignalPreprocessor, split_in_onsets
 

@@ -49,12 +49,12 @@ class MyDataLoader:
         label_dict = {
             'unlabeled': 0,
             'good': 1,
-            'buzz_1': -1,
-            'buzz_2': -2,
+            'buzzing_on_plucking': -1,
+            'buzzing_during_fretting': -2,
             'muffled': -3,
-            'mute': -4,
-            'finger-noise': -5,
-            'premature-release': -6,
+            'muted': -4,
+            'finger_noise': -5,
+            'premature_string_release': -6,
             'others': -7
         }
 
@@ -143,12 +143,12 @@ class MyDataLoader:
         filepaths = glob.glob(os.path.join(self.dataset_path, 'test/**/*.wav'), recursive=True)
         label_dict = {
             'good': 0,
-            'buzz_1': 1,
-            'buzz_2': 2,
+            'buzzing_on_plucking': 1,
+            'buzzing_during_fretting': 2,
             'muffled': 3,
             'mute': 4,
-            'finger-noise': 5,   
-            'premature-release': 6,
+            'finger_noise': 5,   
+            'premature_string_release': 6,
             'others': 7
         }
 

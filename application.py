@@ -9,7 +9,7 @@ import librosa
 import librosa.display
 import soundfile as sf
 
-from poor_tone_detector import PoorToneDetector
+from detector.poor_tone_detector import PoorToneDetector
 
 application = Flask(__name__)
 application.config['UPLOAD_FOLDER'] = 'static/uploads/'
