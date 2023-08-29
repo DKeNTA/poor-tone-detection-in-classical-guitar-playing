@@ -96,37 +96,22 @@ class MyDataLoader:
             'poor': -1
         }
 
-        if self.cross_validation:
-            unlabeled_filepaths = []
-            for file in filepaths:
-                for key, value in label_dict.items():
-                    if key in file.split('/'):
-                        if value == 0:
-                            unlabeled_filepaths.append(file)
-                        break
-                else:
-                    raise ValueError(f"Error: Unexpected file name: {file}")
-                
-            train_filepaths, val_filepaths = train_test_split(unlabeled_filepaths, test_size=0.1)
-            setting_c_filepaths = train_filepaths
-        
-        else:
-            unlabeled_filepaths = []
-            labeled_filepaths = []
-            for file in filepaths:
-                for key, value in label_dict.items():
-                    if key in file.split('/'):
-                        if value == 0:
-                            unlabeled_filepaths.append(file)
-                        elif value == 1:
-                            labeled_filepaths.append(file)
-                        break
-                else:
-                    raise ValueError(f"Error: Unexpected file name: {file}")
-        
-            train_labeled_filepaths, val_filepaths = train_test_split(labeled_filepaths, test_size=0.2, random_state=self.random_seed)
-            setting_c_filepaths = labeled_filepaths
-            train_filepaths = unlabeled_filepaths + train_labeled_filepaths
+        unlabeled_filepaths = []
+        labeled_filepaths = []
+        for file in filepaths:
+            for key, value in label_dict.items():
+                if key in file.split('/'):
+                    if value == 0:
+                        unlabeled_filepaths.append(file)
+                    elif value == 1:
+                        labeled_filepaths.append(file)
+                    break
+            else:
+                raise ValueError(f"Error: Unexpected file name: {file}")
+    
+        train_labeled_filepaths, val_filepaths = train_test_split(labeled_filepaths, test_size=0.2, random_state=self.random_seed)
+        setting_c_filepaths = labeled_filepaths
+        train_filepaths = unlabeled_filepaths + train_labeled_filepaths
             
         train_dataset = MyDataset(train_filepaths, transform=self.train_transform)
         val_dataset = MyDataset(val_filepaths, transform=self.test_transform)
@@ -146,7 +131,7 @@ class MyDataLoader:
             'buzzing_on_plucking': 1,
             'buzzing_during_fretting': 2,
             'muffled': 3,
-            'mute': 4,
+            'muted': 4,
             'finger_noise': 5,   
             'premature_string_release': 6,
             'others': 7

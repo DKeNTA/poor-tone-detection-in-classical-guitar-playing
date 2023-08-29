@@ -277,7 +277,7 @@ class ModelTester:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--test_data_path', type=str, default='../dataset/test/',
+    parser.add_argument('--test_data_path', type=str, default='../dataset/',
                         help="Test dataset path to load.")
     parser.add_argument('--weight_path', type=str, default='weights/parameters.pth',
                         help="Path to the weights of the trained model.")
@@ -291,14 +291,12 @@ if __name__ == '__main__':
                         help="Threshold to use for the test.")
     parser.add_argument('--sr', type=int, default=44100,
                         help='Sampling rate.')
-    parser.add_argument('--frame_length', type=int, default=1024,
+    parser.add_argument('--frame_length', type=int, default=1380,
                         help='Window size for the STFT used in extracting the Mel spectrogram.')
-    parser.add_argument('--hop_length', type=int, default=512,
+    parser.add_argument('--hop_length', type=int, default=345,
                         help='Number of samples between successive frames in the STFT.')
     parser.add_argument('--n_mels', type=int, default=128,
                         help='Number of Mel frequency bands to use when extracting the Mel spectrogram.')
-    parser.add_argument('--multi_input', action='store_true',
-                        help="Whether to use multiple inputs for the model.")
     parser.add_argument('--mapping', type=str, choices=['2d', '3d'], default=None,
                         help="Mapping method to use for visualizing the results ('2d' or '3d').")
     parser.add_argument('--mode', type=str, choices=['labeled', 'pn'], default=None,

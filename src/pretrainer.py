@@ -54,7 +54,7 @@ class ModelPretrainer:
             
             self.logger.info(f"Pretrain Loss: {pretrain_loss:.6f}")
 
-            val_loss = self.pretrain_validation(ae, val_dataloader)
+            val_loss = self.validation(ae, val_dataloader)
 
             log['pretrain_loss'].append(pretrain_loss)
             log['validation_loss'].append(val_loss)
