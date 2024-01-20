@@ -172,7 +172,7 @@ class ModelTester:
             3:  {'label': 'muffled', 'color': 'orange', 'marker': 's'},
             4:  {'label': 'muted', 'color': 'gray', 'marker': 'x'},
             5:  {'label': 'finger_noise', 'color': 'green', 'marker': '1'},
-            6:  {'label': 'premature_string_release', 'color': 'olive', 'marker': 'D'},
+            6:  {'label': 'unnaturally_cut-off', 'color': 'olive', 'marker': 'D'},
             7:  {'label': 'others', 'color': 'magenta', 'marker': '2'},
         }
         label_num = len(point_dict) - 1
@@ -235,7 +235,7 @@ class ModelTester:
         tsne_2d = TSNE(n_components=2, random_state=42)
         z_2d = tsne_2d.fit_transform(z)
 
-        fig = plt.figure(figsize=(14, 8))
+        fig = plt.figure(figsize=(16, 8))
         fig.suptitle('2D Feature Space Plot')
 
         ax = fig.add_subplot()
@@ -247,8 +247,8 @@ class ModelTester:
                            color=point_dict[i]['color'],
                            marker=point_dict[i]['marker'],
                            alpha=0.75 if point_dict[i]['color'] != 'black' else 1.0)
-        #plt.legend(loc='upper left', bbox_to_anchor=(1.02, 1), fontsize=12)
-        plt.legend(loc='best', fontsize=14)
+        plt.legend(loc='upper left', bbox_to_anchor=(1.02, 1), fontsize=12)
+        #plt.legend(loc='best', fontsize=14)
         plt.subplots_adjust(right=0.8) 
         plt.savefig('mapping.png', bbox_inches='tight')
 
